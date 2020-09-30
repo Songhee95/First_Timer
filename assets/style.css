@@ -1,5 +1,6 @@
-.container{
-    margin-top: 20px;
+.Wrap{
+    margin: 0 auto;
+    width: 384px;
     height: 384px;
     background-color: rgb(59, 59, 59);
     border-radius: 15rem;
@@ -82,6 +83,7 @@ i{
     background:  rgb(199, 155, 178);
 }
 #work-minute-wrap, #rest-minute-wrap{
+    width: 130px;
     margin: 10px;
     border: 1px solid bisque;
     border-radius: 1rem;
@@ -93,6 +95,7 @@ i{
     margin-bottom:0;
 }
 #work-input, #rest-input{
+    width: 100px;
     background-color: rgb(59, 59, 59);
     color: rgb(187, 182, 182);
     font-family: 'Neucha', cursive;
@@ -113,40 +116,4 @@ i{
 }
 #timeUpBtn:focus, #timeDownBtn:focus{
     outline: none;
-}
-
-@media screen and (max-width: 400px){
-    .container{
-        height: 294px;
-    }
-    #work-or-rest{
-        color: rgb(187, 182, 182);
-        font-size: 0.8rem;
-    }.slider:before {
-        bottom: 3px;
-    }
-    #minute-display{
-        font-size: 3rem;
-    }
-    #second-display{
-        font-size: 2rem;
-        padding-right: 16px;
-        padding-top: 5px;
-    }
-    #play, #pause, #stop{
-        height: 35px;
-        width: 35px;
-        margin: 5px;
-    }
-    #work-minute-wrap, #rest-minute-wrap{
-        margin: 5px;
-        border-radius: 0.5rem;
-    }
-    #work-minutes, #rest-minutes, #work-input, #rest-input{
-        font-size: 1rem;
-    }
-    #timeUpBtn, #timeDownBtn{
-        height: 32px;
-        width: 32px;
-    }
 }
