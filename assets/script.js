@@ -1,5 +1,5 @@
 // window.open("", "MsgWindow", "width=200,height=100");
-
+var audio = document.querySelector("#alarmSound");
 var Switch = document.querySelector("#toggle");
 var Status = document.querySelector('.status');
 var workOrRest = document.querySelector('#work-or-rest');
@@ -50,6 +50,7 @@ function timerCal(){
         totalSeconds--;
         if(totalSeconds<1){
             clearInterval(timer);
+            audio.play();
         }
         minuteCal();
         secondCal();
@@ -61,12 +62,14 @@ function play(){
 }
 function pause(){
     clearInterval(timer);
+    audio.pause();
 }
 function stop(){
     clearInterval(timer);
     minuteDisplay.textContent = workInput.value;
     secondDisplay.textContent = '00';
     totalSeconds = workInput.value;
+    audio.pause();
 }
 function timesUp(){
     if(Switch.checked === true){

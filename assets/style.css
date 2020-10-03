@@ -92,6 +92,9 @@ i{
 #play:hover, #pause:hover, #stop:hover{
     background:  rgb(199, 155, 178);
 }
+#play:active, #pause:active, #stop:active{
+    background:  rgb(167, 117, 142);
+}
 #work-minute-wrap, #rest-minute-wrap{
     width: 130px;
     margin: 10px;
