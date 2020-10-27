@@ -52,8 +52,10 @@ function timerCal(){
     timer = setInterval(function(){
         totalSeconds--;
         if(totalSeconds<1){
-            savedHour += parseInt(workInput.value);
-            localStorage.setItem('save', savedHour);
+            if(Switch.checked === true){
+                savedHour += parseInt(workInput.value);
+                localStorage.setItem('save', savedHour);
+            }
             clearInterval(timer);
             audio.play();
         }
@@ -92,24 +94,30 @@ function timesDown(){
 }
 // hour history code goes here
 var studyHourArr=[];
-var studyHour = [];
 function saveHour(){
+    var saveTotalHour = [];
     var totalMin = localStorage.getItem('save');
     var studyHour = Math.floor(totalMin/60); 
     var studyMin = totalMin%60;
     var totalStudyHour = studyHour + 'hr'+ studyMin + 'min';
-    studyHourArr.push(totalStudyHour);
-    console.log(studyHourArr);
-    localStorage.setItem('total-hour', JSON.stringify(studyHourArr));
+    saveTotalHour.push(totalStudyHour);
+    localStorage.setItem('total-hour', JSON.stringify(saveTotalHour));
+    createHistoryArray();
 }
-function init(){
-    var studyHour = JSON.parse(localStorage.getItem('total-hour'));
-    studyHourArr = studyHour;
-    for(var i=0; i<studyHour.length; i++){
+function createHistoryArray(){
+    var tempArray = JSON.parse(localStorage.getItem('total-hour'));
+    for(var i=0; i<tempArray.length; i++){
         var newElement = document.createElement('div');
-        newElement.textContent=studyHourArr[i];
+        newElement.textContent=tempArray[i];
         newElement.classList.add('history');
         hourHistory.append(newElement);
+    }
+}
+function init(){
+    var getTotalHour = JSON.parse(localStorage.getItem('total-hour'));
+    studyHourArr = getTotalHour;
+    if(studyHourArr != null){
+        createHistoryArray();
     }
 }
 init();
