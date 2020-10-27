@@ -14,8 +14,11 @@ var workInput = document.querySelector("#work-input");
 var restInput = document.querySelector("#rest-input");
 var minUpBtn = document.querySelector('#timeUpBtn');
 var minDownBtn = document.querySelector('#timeDownBtn');
+var saveBtn = document.querySelector(".save-btn");
+var hourHistory = document.querySelector(".hour-history");
 var timer;
 var totalSeconds;
+var savedHour=0;
 
 function statusToggle(){
     if(Switch.checked === true){
@@ -49,6 +52,8 @@ function timerCal(){
     timer = setInterval(function(){
         totalSeconds--;
         if(totalSeconds<1){
+            savedHour += parseInt(workInput.value);
+            localStorage.setItem('save', savedHour);
             clearInterval(timer);
             audio.play();
         }
@@ -85,6 +90,24 @@ function timesDown(){
         restInput.value--;
     }
 }
+// hour history code goes here
+var studyHourArr=[];
+var studyHour = [];
+function saveHour(){
+    var totalMin = localStorage.getItem('save');
+    var studyHour = Math.floor(totalMin/60); 
+    var studyMin = totalMin%60;
+    var totalStudyHour = studyHour + 'hr'+ studyMin + 'min';
+    studyHourArr.push(totalStudyHour);
+    console.log(studyHourArr);
+    localStorage.setItem('total-hour', JSON.stringify(studyHourArr));
+}
+function init(){
+    var studyHour = JSON.parse(localStorage.getItem('total-hour'));
+    studyHourArr = studyHour;
+    console.log(studyHour);
+}
+init();
 
 Switch.addEventListener('click', statusToggle);
 playBtn.addEventListener('click', play);
@@ -92,3 +115,5 @@ pauseBtn.addEventListener('click', pause);
 stopBtn.addEventListener('click', stop);
 minUpBtn.addEventListener('click', timesUp);
 minDownBtn.addEventListener('click', timesDown);
+saveBtn.addEventListener('click', saveHour);
+

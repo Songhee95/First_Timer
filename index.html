@@ -1,75 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./assets/style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Neucha&display=swap" rel="stylesheet">
-</head>
-<body class="container">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Neucha&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="container">
     <audio id="alarmSound">
-        <source src="./assets/Wecker-sound.mp3" type="audio/mpeg">
+      <source src="./assets/Wecker-sound.mp3" type="audio/mpeg" />
     </audio>
-    <div class="header">
-        SY TIMER
+    <div class="header">SY TIMER</div>
+    <div>
+      <p>
+        SY Timer will save your total study hour automatically when times up.
+        All you need to do is just click save button after finish your study for
+        today!
+      </p>
     </div>
     <div class="Wrap">
-        <div class=toggleButtonWrap>
-            <div class="row justify-content-center" id="toggle-button-wrap">
-                <div class="control">
-                    <label class="switch">
-                        <input type="checkbox" id="toggle" checked>
-                        <span class="slider"></span>
-                    </label>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="status" id="work-or-rest">Study Timer</div>
-            </div>
-        </div>
-        
-        <div class="timerWrap">
-            <div class="row justify-content-center">
-                <div class="text-center" id="minute-display">25</div>
-                <div class='text-center' id="second-display">00</div>
-            </div>
-        </div>
-        <div class="row justify-content-center" id="play-pause-stop-buttons">
-            <div class="buttons">
-                <button aria-label="play" id="play">
-                <i class="fa fa-play" aria-hidden="true"></i>
-                </button>
-                <button aria-label="pause" id="pause">
-                <i class="fa fa-pause" aria-hidden="true"></i>
-                </button>
-                <button aria-label="stop" id="stop">
-                <i class="fa fa-stop" aria-hidden="true"></i>
-                </button>
-            </div>
+      <div class="toggleButtonWrap">
+        <div class="row justify-content-center" id="toggle-button-wrap">
+          <div class="control">
+            <label class="switch">
+              <input type="checkbox" id="toggle" checked />
+              <span class="slider"></span>
+            </label>
+          </div>
         </div>
         <div class="row justify-content-center">
-            <div class="text-center" id="work-minute-wrap">
-                <p id='work-minutes'>Work Minutes</p>
-                <input class="text-center" type=text id='work-input' value="25"/>
-            </div>
-            <div class="text-center" id="rest-minute-wrap">
-                <p id="rest-minutes">Rest Minutes</p>
-                <input class="text-center" type=text id='rest-input' value="05"/>
-            </div>
+          <div class="status" id="work-or-rest">Study Timer</div>
         </div>
-        <div class="row justify-content-center">
-            <button id="timeUpBtn"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
-            <button id="timeDownBtn"><i class="fa fa-arrow-down" aria-hidden="true"></i></button>
-        </div>
+      </div>
 
+      <div class="timerWrap">
+        <div class="row justify-content-center">
+          <div class="text-center" id="minute-display">25</div>
+          <div class="text-center" id="second-display">00</div>
+        </div>
+      </div>
+      <div class="row justify-content-center" id="play-pause-stop-buttons">
+        <div class="buttons">
+          <button aria-label="play" id="play">
+            <i class="fa fa-play" aria-hidden="true"></i>
+          </button>
+          <button aria-label="pause" id="pause">
+            <i class="fa fa-pause" aria-hidden="true"></i>
+          </button>
+          <button aria-label="stop" id="stop">
+            <i class="fa fa-stop" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="text-center" id="work-minute-wrap">
+          <p id="work-minutes">Work Minutes</p>
+          <input class="text-center" type="text" id="work-input" value="25" />
+        </div>
+        <div class="text-center" id="rest-minute-wrap">
+          <p id="rest-minutes">Rest Minutes</p>
+          <input class="text-center" type="text" id="rest-input" value="05" />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <button id="timeUpBtn">
+          <i class="fa fa-arrow-up" aria-hidden="true"></i>
+        </button>
+        <button id="timeDownBtn">
+          <i class="fa fa-arrow-down" aria-hidden="true"></i>
+        </button>
+      </div>
     </div>
+    <div>
+      <button class="save-btn">Save!</button>
+    </div>
+    <div class="hour-history">Display study hour history</div>
     <script src="./assets/script.js"></script>
-</body>
+  </body>
 </html>
