@@ -43,12 +43,12 @@ function secondCal(){
         secondDisplay.textContent = '0' + second;
     }
 }
+if(Switch.checked === true){
+    totalSeconds = (workInput.value)*60;
+}else{
+    totalSeconds = (restInput.value)*60;
+}
 function timerCal(){
-    if(Switch.checked === true){
-        totalSeconds = (workInput.value)*60;
-    }else{
-        totalSeconds = (restInput.value)*60;
-    }
     timer = setInterval(function(){
         totalSeconds--;
         if(totalSeconds<1){
