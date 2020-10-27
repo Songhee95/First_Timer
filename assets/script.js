@@ -108,6 +108,7 @@ function init(){
     for(var i=0; i<studyHour.length; i++){
         var newElement = document.createElement('div');
         newElement.textContent=studyHourArr[i];
+        newElement.classList.add('history');
         hourHistory.append(newElement);
     }
 }

@@ -61,6 +61,12 @@ i{
     transition: .4s;
     border-radius: 50%;
 }
+.history{
+    float: left;
+    background-color: seashell;
+    width: 150px;
+    margin: 10px;
+}
 #work-or-rest{
     color: rgb(187, 182, 182);
     font-size: 1.3rem;
@@ -130,3 +136,4 @@ i{
 #timeUpBtn:focus, #timeDownBtn:focus{
     outline: none;
 }
+
