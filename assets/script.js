@@ -43,11 +43,7 @@ function secondCal(){
         secondDisplay.textContent = '0' + second;
     }
 }
-if(Switch.checked === true){
-    totalSeconds = (workInput.value)*60;
-}else{
-    totalSeconds = (restInput.value)*60;
-}
+totalSeconds = minuteDisplay.textContent*60;
 function timerCal(){
     timer = setInterval(function(){
         totalSeconds--;
@@ -75,31 +71,44 @@ function stop(){
     clearInterval(timer);
     minuteDisplay.textContent = workInput.value;
     secondDisplay.textContent = '00';
-    totalSeconds = workInput.value;
+    totalSeconds = workInput.value *60;
     audio.pause();
 }
 function timesUp(){
     if(Switch.checked === true){
         workInput.value++;
+        totalSeconds = (workInput.value)*60;
+        var currentWorkInput = workInput.value;
+        minuteDisplay.textContent = currentWorkInput; 
     }else{
         restInput.value++;
+        totalSeconds = (restInput.value)*60;
+        var currentRestInput = restInput.value;
+        minuteDisplay.textContent = currentRestInput; 
     }
 }
 function timesDown(){
     if(Switch.checked === true){
         workInput.value--;
+        totalSeconds = (workInput.value)*60;
+        var currentWorkInput = workInput.value;
+        minuteDisplay.textContent = currentWorkInput; 
     }else{
         restInput.value--;
+        totalSeconds = (restInput.value)*60;
+        var currentRestInput = restInput.value;
+        minuteDisplay.textContent = currentRestInput; 
     }
 }
 // hour history code goes here
 var studyHourArr=[];
 function saveHour(){
+    var timeZone = moment().format('MMMM Do YYYY');
     var saveTotalHour = [];
     var totalMin = localStorage.getItem('save');
     var studyHour = Math.floor(totalMin/60); 
     var studyMin = totalMin%60;
-    var totalStudyHour = studyHour + 'hr'+ studyMin + 'min';
+    var totalStudyHour = timeZone + ":"+studyHour + 'hr'+ studyMin + 'min';
     saveTotalHour.push(totalStudyHour);
     localStorage.setItem('total-hour', JSON.stringify(saveTotalHour));
     createHistoryArray();
@@ -129,4 +138,3 @@ stopBtn.addEventListener('click', stop);
 minUpBtn.addEventListener('click', timesUp);
 minDownBtn.addEventListener('click', timesDown);
 saveBtn.addEventListener('click', saveHour);
-
