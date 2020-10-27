@@ -105,7 +105,11 @@ function saveHour(){
 function init(){
     var studyHour = JSON.parse(localStorage.getItem('total-hour'));
     studyHourArr = studyHour;
-    console.log(studyHour);
+    for(var i=0; i<studyHour.length; i++){
+        var newElement = document.createElement('div');
+        newElement.textContent=studyHourArr[i];
+        hourHistory.append(newElement);
+    }
 }
 init();
 
